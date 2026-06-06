@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
-import SaveCollegeButton from "../../../components/saveCollegeButton";
+import ReviewForm from "@/components/ReviewForm";
+import SaveCollegeButton from "@/components/saveCollegeButton";
 
 export default async function CollegePage({
   params,
@@ -9,10 +10,13 @@ export default async function CollegePage({
   const { id } = await params;
 
   const college = await prisma.college.findUnique({
-    where: {
-      id,
-    },
-  });
+  where: {
+    id,
+  },
+  include: {
+    reviews: true,
+  },
+});
 
   if (!college) {
     return (
@@ -53,13 +57,60 @@ export default async function CollegePage({
       </p>
 
       <div className="border rounded-lg p-4">
-        <h2 className="text-2xl font-bold mb-2">
-          Overview
-        </h2>
+  <h2 className="text-2xl font-bold mb-2">
+    Overview
+  </h2>
 
-        <p>{college.overview}</p>
-      </div>
+  <p>{college.overview}</p>
+</div>
 
+<ReviewForm
+  collegeId={college.id}
+/>
+
+<div className="mt-8">
+  <h2 className="text-2xl font-bold mb-4">
+    Student Reviews
+  </h2>
+
+  {college.reviews.length ===
+  0 ? (
+    <p>
+      No reviews yet.
+    </p>
+  ) : (
+    <div className="space-y-4">
+      {college.reviews.map(
+        (review) => (
+          <div
+            key={review.id}
+            className="border rounded-lg p-4"
+          >
+            <h3 className="font-bold">
+              {
+                review.userName
+              }
+            </h3>
+
+            <p>
+              ⭐
+              {
+                review.rating
+              }
+              /5
+            </p>
+
+            <p>
+              {
+                review.comment
+              }
+            </p>
+          </div>
+        )
+      )}
+    </div>
+  )}
+</div>
       <SaveCollegeButton collegeId={college.id} />
     </main>
   );

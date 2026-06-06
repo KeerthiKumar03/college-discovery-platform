@@ -1,133 +1,187 @@
-📚 College Discovery Platform
+# 🎓 College Discovery Platform
 
-A full-stack web application that helps students discover, compare, and save colleges using advanced search, filtering, authentication, and personalized features.
+A full-stack web application that helps students discover, compare, save, and review colleges based on various criteria such as location, ratings, fees, and placement statistics.
 
-Built with Next.js 15, TypeScript, Prisma, PostgreSQL, and TailwindCSS, this project focuses on scalable architecture, clean API design, and real-world product thinking.
+## 🚀 Features
 
-📌 Features
-🔍 1. College Listing + Advanced Search
-Search colleges by name or keyword
-Filter by:
-📍 Location
-💰 Fees range
-⭐ Rating
-Pagination support (?page=1&limit=10)
-Optimized database queries using Prisma findMany()
-🎓 2. College Detail Page
+### 🔐 Authentication
 
-Each college page shows:
+* User Signup
+* User Login
+* User Logout
+* Protected routes for saved colleges
 
-College overview
-Courses offered:
-CSE
-ECE
-IT
-Placement details:
-Average package
-Highest package
-Student reviews and ratings
-⚖️ 3. College Comparison System
+### 🏫 College Discovery
 
-Compare 2–3 colleges side-by-side in a structured table:
+* View a list of colleges
+* Search colleges by name
+* Filter colleges by:
 
-Feature	College A	College B	College C
-Fees	✔	✔	✔
-Avg Package	✔	✔	✔
-Rating	✔	✔	✔
-Helps students make data-driven decisions
-Clean and intuitive UI for better comparison
-🔐 4. Authentication + Saved Colleges
-User registration and login
-JWT / session-based authentication
-Save or remove colleges
-View personalized saved list
-Protected APIs for user-specific data
-🛠️ Tech Stack
-Frontend
-Next.js 15 (App Router)
-React + TypeScript
-TailwindCSS
-Shadcn UI
-TanStack Query
-Backend
-Next.js API Routes
-Prisma ORM
-PostgreSQL (Neon)
-Zod validation
-Authentication
-JWT / NextAuth (based on implementation)
-🗄️ Database Schema Overview
+  * Location
+  * Rating
+  * Fees
+* View detailed information about each college
 
-Main entities:
+### ⭐ Saved Colleges
 
-User
-College
-Course
-Review
-SavedCollege
+* Save favorite colleges
+* View all saved colleges
+* Remove colleges from saved list
 
-Relationships:
+### ⚖️ Compare Colleges
 
-Users can save multiple colleges
-Colleges have multiple courses and reviews
-Normalized relational structure using Prisma ORM
-📡 API Endpoints
-Authentication
-POST /api/auth/register
-POST /api/auth/login
-GET  /api/auth/me
-Colleges
-GET /api/colleges
-GET /api/colleges/:id
-GET /api/colleges/search
-GET /api/compare
-Saved Colleges
-POST   /api/save
-DELETE /api/save/:id
-GET    /api/save
-📂 Folder Structure
-src/
- ├── app/              # Pages (Next.js App Router)
- ├── components/
- │     ├── college/
- │     ├── compare/
- │     ├── filters/
- │     └── shared/
- ├── lib/
- │     ├── prisma.ts
- │     ├── auth.ts
- │     └── validations.ts
- ├── services/
- ├── hooks/
- ├── types/
- ├── actions/
- └── app/api/
-✨ Key Highlights
-🔎 Advanced search & filtering with Prisma
-⚡ Pagination for performance optimization
-🔐 Secure authentication system
-📊 Real-time college comparison feature
-🧠 Clean modular architecture
-🚀 Production-ready backend design (even without deployment)
-🎯 Future Improvements
-AI-based college recommendation system
-Bookmark sharing between users
-College ranking system
-Admin dashboard
-Review moderation system
-Deployment (Vercel + Neon)
-👨‍💻 Author
-Name: Your Name
-GitHub: https://github.com/your-username
-LinkedIn: https://linkedin.com/in/your-profile
-📄 License
+* Compare two colleges side-by-side
+* Compare:
 
-This project is open-source and available under the MIT License.
+  * Location
+  * Fees
+  * Ratings
+  * Average Package
+  * Highest Package
 
-🔥 Important Tip (for placements)
+### 📝 Reviews
 
-Even without deployment, you can say:
+* Add reviews for colleges
+* View reviews from other users
 
-“This is a full-stack production-level system with authentication, relational DB design, and optimized API routes. Deployment is pending, but the system is fully functional locally.”
+### 🎨 User Interface
 
-That actually sounds strong in interviews.
+* Responsive design
+* Modern UI using Tailwind CSS
+* Loading states for better user experience
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* Next.js 16
+* React
+* TypeScript
+* Tailwind CSS
+
+### Backend
+
+* Next.js API Routes
+* Prisma ORM
+
+### Database
+
+* PostgreSQL / SQLite (depending on your setup)
+
+### Development Tools
+
+* VS Code
+* Git & GitHub
+
+---
+
+## 📂 Project Structure
+
+```
+college-discovery-platform/
+├── app/
+│   ├── api/
+│   ├── college/
+│   ├── compare/
+│   ├── login/
+│   ├── signup/
+│   ├── saved/
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+├── lib/
+├── prisma/
+├── public/
+├── package.json
+└── README.md
+```
+
+---
+
+## ⚙️ Installation and Setup
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd college-discovery-platform
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure environment variables
+
+Create a `.env` file in the root directory and add:
+
+```env
+DATABASE_URL="your_database_url"
+```
+
+### 4. Run Prisma migrations
+
+```bash
+npx prisma migrate dev
+```
+
+### 5. Start the development server
+
+```bash
+npm run dev
+```
+
+Open your browser and visit:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 📸 Screenshots
+
+### Home Page
+![Home Page](./screenshots/home-page.png)
+
+### Login Page
+![Login Page](./screenshots/login-page.png)
+
+### Signup Page
+![Signup Page](./screenshots/signup-page.png)
+
+### College Details Page
+![College Details](./screenshots/compare-page.png)
+
+### Compare Colleges Page
+![Compare Colleges](./screenshots/reviews-page.png)
+
+### Saved Colleges Page
+![Saved Colleges](./screenshots/saved-colleges.png)
+
+## 🔮 Future Enhancements
+
+* College recommendation system
+* Advanced filtering options
+* User profiles
+* Email verification
+* College ranking charts
+* AI-based college suggestions
+
+---
+
+## 👨‍💻 Author
+
+**Keerthi Kumar**
+
+B.Tech CSE Student
+
+---
+
+## 📄 License
+
+This project is developed for educational purposes.

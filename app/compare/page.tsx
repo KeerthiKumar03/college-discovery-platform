@@ -36,7 +36,7 @@ export default function ComparePage() {
         <select
           value={college1}
           onChange={(e) => setCollege1(e.target.value)}
-          className="border p-3 rounded"
+          className="border p-3 rounded text-black"
         >
           <option value="">Select College 1</option>
 
@@ -50,7 +50,7 @@ export default function ComparePage() {
         <select
           value={college2}
           onChange={(e) => setCollege2(e.target.value)}
-          className="border p-3 rounded"
+          className="border p-3 rounded text-black"
         >
           <option value="">Select College 2</option>
 
@@ -63,45 +63,163 @@ export default function ComparePage() {
       </div>
 
       {c1 && c2 && (
-        <table className="border-collapse border w-full">
-          <tbody>
-            <tr>
-              <td className="border p-3 font-bold">Feature</td>
-              <td className="border p-3">{c1.name}</td>
-              <td className="border p-3">{c2.name}</td>
-            </tr>
+        <>
+          <div className="mb-6 p-4 border rounded-lg bg-gray-900">
+            <h2 className="text-2xl font-bold mb-2">
+              Recommended College
+            </h2>
 
-            <tr>
-              <td className="border p-3">Location</td>
-              <td className="border p-3">{c1.location}</td>
-              <td className="border p-3">{c2.location}</td>
-            </tr>
+            <p>
+              {c1.rating > c2.rating
+                ? c1.name
+                : c2.name}
+              {" "}
+              has the higher rating.
+            </p>
+          </div>
 
-            <tr>
-              <td className="border p-3">Fees</td>
-              <td className="border p-3">₹{c1.fees.toLocaleString()}</td>
-              <td className="border p-3">₹{c2.fees.toLocaleString()}</td>
-            </tr>
+          <div className="overflow-x-auto">
+            <table className="border-collapse border w-full">
+              <tbody>
+                <tr>
+                  <td className="border p-3 font-bold">
+                    Feature
+                  </td>
+                  <td className="border p-3 font-bold">
+                    {c1.name}
+                  </td>
+                  <td className="border p-3 font-bold">
+                    {c2.name}
+                  </td>
+                </tr>
 
-            <tr>
-              <td className="border p-3">Rating</td>
-              <td className="border p-3">{c1.rating}</td>
-              <td className="border p-3">{c2.rating}</td>
-            </tr>
+                <tr>
+                  <td className="border p-3">
+                    Location
+                  </td>
+                  <td className="border p-3">
+                    {c1.location}
+                  </td>
+                  <td className="border p-3">
+                    {c2.location}
+                  </td>
+                </tr>
 
-            <tr>
-              <td className="border p-3">Avg Package</td>
-              <td className="border p-3">₹{c1.avgPackage.toLocaleString()}</td>
-              <td className="border p-3">₹{c2.avgPackage.toLocaleString()}</td>
-            </tr>
+                <tr>
+                  <td className="border p-3">
+                    Fees
+                  </td>
 
-            <tr>
-              <td className="border p-3">Highest Package</td>
-              <td className="border p-3">₹{c1.highestPackage.toLocaleString()}</td>
-              <td className="border p-3">₹{c2.highestPackage.toLocaleString()}</td>
-            </tr>
-          </tbody>
-        </table>
+                  <td
+                    className={`border p-3 ${
+                      c1.fees < c2.fees
+                        ? "bg-green-600"
+                        : ""
+                    }`}
+                  >
+                    ₹{c1.fees.toLocaleString()}
+                  </td>
+
+                  <td
+                    className={`border p-3 ${
+                      c2.fees < c1.fees
+                        ? "bg-green-600"
+                        : ""
+                    }`}
+                  >
+                    ₹{c2.fees.toLocaleString()}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td className="border p-3">
+                    Rating
+                  </td>
+
+                  <td
+                    className={`border p-3 ${
+                      c1.rating > c2.rating
+                        ? "bg-green-600"
+                        : ""
+                    }`}
+                  >
+                    {c1.rating}
+                  </td>
+
+                  <td
+                    className={`border p-3 ${
+                      c2.rating > c1.rating
+                        ? "bg-green-600"
+                        : ""
+                    }`}
+                  >
+                    {c2.rating}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td className="border p-3">
+                    Average Package
+                  </td>
+
+                  <td
+                    className={`border p-3 ${
+                      c1.avgPackage >
+                      c2.avgPackage
+                        ? "bg-green-600"
+                        : ""
+                    }`}
+                  >
+                    ₹
+                    {c1.avgPackage.toLocaleString()}
+                  </td>
+
+                  <td
+                    className={`border p-3 ${
+                      c2.avgPackage >
+                      c1.avgPackage
+                        ? "bg-green-600"
+                        : ""
+                    }`}
+                  >
+                    ₹
+                    {c2.avgPackage.toLocaleString()}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td className="border p-3">
+                    Highest Package
+                  </td>
+
+                  <td
+                    className={`border p-3 ${
+                      c1.highestPackage >
+                      c2.highestPackage
+                        ? "bg-green-600"
+                        : ""
+                    }`}
+                  >
+                    ₹
+                    {c1.highestPackage.toLocaleString()}
+                  </td>
+
+                  <td
+                    className={`border p-3 ${
+                      c2.highestPackage >
+                      c1.highestPackage
+                        ? "bg-green-600"
+                        : ""
+                    }`}
+                  >
+                    ₹
+                    {c2.highestPackage.toLocaleString()}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </>
       )}
     </main>
   );

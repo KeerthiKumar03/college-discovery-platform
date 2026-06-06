@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import LogoutButton from "@/components/LogOutButton";
 import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -58,18 +59,20 @@ export default function RootLayout({
               </Link>
 
               <Link
-                href="/login"
-                className="text-white hover:text-blue-400 transition"
-              >
-                Login
-              </Link>
+  href="/login"
+  className="hover:text-blue-400"
+>
+  Login
+</Link>
 
-              <Link
-                href="/signup"
-                className="text-white hover:text-blue-400 transition"
-              >
-                Signup
-              </Link>
+<Link
+  href="/signup"
+  className="hover:text-blue-400"
+>
+  Signup
+</Link>
+
+<LogoutButton />
             </div>
           </div>
         </nav>

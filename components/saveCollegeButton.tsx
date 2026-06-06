@@ -6,6 +6,8 @@ export default function SaveCollegeButton({
   collegeId: string;
 }) {
   const saveCollege = async () => {
+    console.log("Button clicked");
+
     const user = JSON.parse(
       localStorage.getItem("user") || "{}"
     );
@@ -38,7 +40,7 @@ export default function SaveCollegeButton({
   return (
     <button
       onClick={saveCollege}
-      className="bg-green-600 text-white px-4 py-2 rounded mt-4"
+      className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded mt-4"
     >
       Save College
     </button>
