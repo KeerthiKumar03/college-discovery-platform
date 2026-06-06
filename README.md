@@ -180,36 +180,19 @@ http://localhost:3000
 ---
 
 ## 📸 Screenshots
+![Home Page](./Screenshots/home-page.png)
 
-### Home Page
+![Login Page](./Screenshots/login-page.png)
 
-![Home Page](./screenshots/home-page.png)
+![Signup Page](./Screenshots/signup-page.png)
 
-### Login Page
+![College Details](./Screenshots/college-details.png)
 
-![Login Page](./screenshots/login-page.png)
+![Compare Colleges](./Screenshots/compare-page.png)
 
-### Signup Page
+![Saved Colleges](./Screenshots/saved-colleges.png)
 
-![Signup Page](./screenshots/signup-page.png)
-
-### College Details Page
-
-![College Details](./screenshots/college-details.png)
-
-### Compare Colleges Page
-
-![Compare Colleges](./screenshots/compare-page.png)
-
-### Saved Colleges Page
-
-![Saved Colleges](./screenshots/saved-colleges.png)
-
-### Reviews Section
-
-![Reviews](./screenshots/reviews-page.png)
-
----
+![Reviews](./Screenshots/reviews-page.png)
 
 ## ✨ Key Highlights
 
