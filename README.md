@@ -2,6 +2,8 @@
 
 A full-stack web application that helps students discover, compare, save, and review colleges based on various criteria such as location, ratings, fees, and placement statistics.
 
+---
+
 ## 🚀 Features
 
 ### 🔐 Authentication
@@ -9,7 +11,7 @@ A full-stack web application that helps students discover, compare, save, and re
 * User Signup
 * User Login
 * User Logout
-* Protected routes for saved colleges
+* Protected routes for authenticated users
 
 ### 🏫 College Discovery
 
@@ -26,7 +28,7 @@ A full-stack web application that helps students discover, compare, save, and re
 
 * Save favorite colleges
 * View all saved colleges
-* Remove colleges from saved list
+* Remove colleges from the saved list
 
 ### ⚖️ Compare Colleges
 
@@ -48,7 +50,7 @@ A full-stack web application that helps students discover, compare, save, and re
 
 * Responsive design
 * Modern UI using Tailwind CSS
-* Loading states for better user experience
+* Loading states for improved user experience
 
 ---
 
@@ -68,7 +70,7 @@ A full-stack web application that helps students discover, compare, save, and re
 
 ### Database
 
-* PostgreSQL / SQLite (depending on your setup)
+* PostgreSQL (Neon Database)
 
 ### Development Tools
 
@@ -77,9 +79,43 @@ A full-stack web application that helps students discover, compare, save, and re
 
 ---
 
+## 🗄️ Database Design
+
+* Users can save multiple colleges
+* Colleges can have multiple reviews
+* Normalized relational structure implemented using Prisma ORM
+
+---
+
+## 📡 API Endpoints
+
+### Authentication
+
+* `POST /api/auth/register`
+* `POST /api/auth/login`
+
+### Colleges
+
+* `GET /api/colleges`
+* `GET /api/colleges/:id`
+* `GET /api/compare`
+
+### Saved Colleges
+
+* `POST /api/save-college`
+* `DELETE /api/save-college/:id`
+* `GET /api/saved-colleges`
+
+### Reviews
+
+* `POST /api/reviews`
+* `GET /api/reviews/:collegeId`
+
+---
+
 ## 📂 Project Structure
 
-```
+```text
 college-discovery-platform/
 ├── app/
 │   ├── api/
@@ -102,20 +138,20 @@ college-discovery-platform/
 
 ## ⚙️ Installation and Setup
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
 git clone <repository-url>
 cd college-discovery-platform
 ```
 
-### 2. Install dependencies
+### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Configure environment variables
+### 3. Configure Environment Variables
 
 Create a `.env` file in the root directory and add:
 
@@ -123,13 +159,13 @@ Create a `.env` file in the root directory and add:
 DATABASE_URL="your_database_url"
 ```
 
-### 4. Run Prisma migrations
+### 4. Run Prisma Migrations
 
 ```bash
 npx prisma migrate dev
 ```
 
-### 5. Start the development server
+### 5. Start the Development Server
 
 ```bash
 npm run dev
@@ -137,7 +173,7 @@ npm run dev
 
 Open your browser and visit:
 
-```
+```text
 http://localhost:3000
 ```
 
@@ -146,31 +182,57 @@ http://localhost:3000
 ## 📸 Screenshots
 
 ### Home Page
+
 ![Home Page](./screenshots/home-page.png)
 
 ### Login Page
+
 ![Login Page](./screenshots/login-page.png)
 
 ### Signup Page
+
 ![Signup Page](./screenshots/signup-page.png)
 
 ### College Details Page
-![College Details](./screenshots/compare-page.png)
+
+![College Details](./screenshots/college-details.png)
 
 ### Compare Colleges Page
-![Compare Colleges](./screenshots/reviews-page.png)
+
+![Compare Colleges](./screenshots/compare-page.png)
 
 ### Saved Colleges Page
+
 ![Saved Colleges](./screenshots/saved-colleges.png)
+
+### Reviews Section
+
+![Reviews](./screenshots/reviews-page.png)
+
+---
+
+## ✨ Key Highlights
+
+* 🔎 Advanced search and filtering functionality
+* ⭐ Save and manage favorite colleges
+* ⚖️ Side-by-side college comparison
+* 📝 College review system
+* 🔐 Authentication and protected features
+* 🗄️ Relational database design using Prisma ORM
+* 📱 Responsive and user-friendly interface
+* 🚀 Production-ready project architecture
+
+---
 
 ## 🔮 Future Enhancements
 
-* College recommendation system
-* Advanced filtering options
-* User profiles
+* AI-based college recommendation system
+* College ranking system
+* Bookmark sharing between users
+* Admin dashboard
+* Review moderation system
 * Email verification
-* College ranking charts
-* AI-based college suggestions
+* Deployment using Vercel and Neon
 
 ---
 
@@ -178,10 +240,14 @@ http://localhost:3000
 
 **Keerthi Kumar**
 
-B.Tech CSE Student
+B.Tech Computer Science and Engineering Student
+
+GitHub: https://github.com/KeerthiKumar03
+
+LinkedIn: www.linkedin.com/in/keerthi-kumar-battipally-5b3b90322
 
 ---
 
 ## 📄 License
 
-This project is developed for educational purposes.
+This project is developed for educational and learning purposes.
